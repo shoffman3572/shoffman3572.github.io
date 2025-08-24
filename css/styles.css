@@ -1,0 +1,216 @@
+/* Custom styles for the portfolio site */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #001f4d !important; /* Navy blue */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar,
+.navbar .navbar-nav .nav-link,
+.navbar .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar .navbar-nav .nav-link {
+    transition: color 0.2s;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-brand:hover {
+    color: #cce0ff !important;
+}
+
+/* Make Bootstrap hamburger (navbar-toggler-icon) white */
+.navbar-light .navbar-toggler {
+    border-color: rgba(255,255,255,0.7);
+}
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.header-section {
+    height: 450px;
+    background-color: #F0F0F0;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px; /* Add horizontal margin between boxes */
+    
+}
+
+.header-section div {
+    flex: 1;
+    text-align: center;
+
+}
+
+.resume-section, .logos-section, .about-me-section {
+    padding: 40px;
+    text-align: center;
+   
+}
+
+.logos-section img {
+    width: 50px;
+    margin: 10px;
+}
+
+.skill-logo {
+    height: 90px;
+    object-fit: contain;
+}
+
+.about-me-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-me-section img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.about-me-content {
+    max-width: 1160px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 32px 24px;
+
+    border: none;
+    font-size: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.about-me-content p {
+    margin-bottom: 1em;
+    text-align: left;
+}
+
+/* Ensure the header row fits 1160px including margins */
+header.container {
+    max-width: 1160px;
+}
+
+/* Remove gutter from Bootstrap row to avoid double spacing */
+header .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.resume-content {
+    max-width: 1160px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 32px 24px;
+
+    border: none;
+    font-size: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.resume-content h5 {
+    margin-top: 1.5em;
+    font-weight: bold;
+}
+
+.resume-content ul {
+    margin-bottom: 1em;
+    padding-left: 1.2em;
+}
+
+.resume-content ul li {
+    margin-bottom: 0.5em;
+}
+
+.contact-content {
+    max-width: 1160px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 32px 24px;
+    font-size: 1rem;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.contact-content label {
+    font-weight: 500;
+}
+
+.contact-content .form-control {
+    margin-bottom: 1em;
+}
+
+.contact-content button[type="submit"] {
+    min-width: 120px;
+}
+
+/* Responsive: stack fields on mobile */
+@media (max-width: 768px) {
+    .contact-content .form-row {
+        flex-direction: column;
+    }
+    .contact-content .col-md-6 {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-section {
+        flex-direction: column;
+    }
+
+    .header-section div {
+        margin-bottom: 20px;
+    }
+
+    /* Skill Set: max 3 logos per row on mobile */
+    #logos .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #logos .col {
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+        margin-bottom: 20px;
+    }
+}
+
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 80px;
+    z-index: 1050;
+    background: #001f4d;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#scrollTopBtn:hover {
+    background: #003366;
+}
+@media (min-width: 768px) {
+    #scrollTopBtn {
+        display: none !important;
+    }
+}
