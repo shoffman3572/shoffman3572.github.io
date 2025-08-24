@@ -1,9 +1,245 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Stewart Hoffman</title>
-  </head>
-  <body>
-    
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stewart Hoffman's Portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Stewart Hoffman</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#resume">Resume</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#logos">Skill Set</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Me</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="container text-center my-5">
+        <!-- Desktop: show row -->
+        <div class="row d-none d-md-flex">
+            <div class="col header-section">
+                <h1>Spin-to-win Game</h1>
+            </div>
+            <div class="col header-section">
+                <h2>Scratcher Game</h2>
+            </div>
+            <div class="col header-section">
+                <video wdith="324" height="448" controls>
+                            <source src="images/DDS.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+            </div>
+        </div>
+        <!-- Mobile: show carousel -->
+        <div id="headerCarousel" class="carousel slide d-md-none" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="header-section">
+                        <h1>Spin-to-win Game</h1>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="header-section">
+                        <h2>Scratcher Game</h2>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="header-section">
+                        <video wdith="324" height="448" controls>
+                            <source src="images/DDS.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#headerCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#headerCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </header>
+
+    <section id="logos" class="container my-5 text-center">
+        <h2 class="py-2">Skill Set</h2>
+        <div class="row">
+            <div class="col">
+                <img src="images/php.png" alt="PHP Logo" class="img-fluid skill-logo" />
+            </div>
+            <div class="col">
+                <img src="images/mysql.png" alt="MySQL Logo" class="img-fluid skill-logo" />
+            </div>
+            <div class="col">
+                <img src="images/html.png" alt="HTML Logo" class="img-fluid skill-logo" />
+            </div>
+            <div class="col">
+                <img src="images/javascript.png" alt="JavaScript Logo" class="img-fluid skill-logo" />
+            </div>
+            <div class="col">
+                <img src="images/jquery.png" alt="jQuery Logo" class="img-fluid skill-logo" />
+            </div>
+            <div class="col">
+                <img src="images/css.png" alt="CSS Logo" class="img-fluid skill-logo" />
+            </div>
+            <div class="col">
+                <img src="images/figma.png" alt="Figma Logo" class="img-fluid skill-logo" />
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="container py-1">
+        <h2 class="text-center">Resume</h2>
+        <div class="resume-content">
+            <p><strong>Stewart Hoffman</strong><br>
+            702 Alondra Drive · Hemet, CA 92545 · <a href="mailto:shoffman3572@gmail.com">shoffman3572@gmail.com</a> · (714) 457-5310<br>
+            <a href="https://www.linkedin.com/in/stewart-hoffman-7ab55410a" target="_blank">LinkedIn Profile</a>
+            </p>
+            <hr>
+            <h5>Professional Summary</h5>
+            <p>
+                Versatile and experienced Web Developer with 20+ years of experience delivering clean, user-centered websites and applications. Proven ability to modernize legacy systems, drive mobile-first design, and create marketing-focused gamification features. A collaborative team player with a creative eye and a practical mindset, now exploring new technologies including AI-assisted development.
+            </p>
+            <h5>Core Competencies</h5>
+            <ul class="list-unstyled">
+                <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript, jQuery, SASS, Responsive Design</li>
+                <li><strong>Backend:</strong> PHP (Procedural), Custom CMS Work</li>
+                <li><strong>Tools &amp; Platforms:</strong> VSCode, Photoshop, Figma</li>
+                <li><strong>AI Tools:</strong> ChatGPT, Openart.ai – leveraging for code, copywriting &amp; ideation</li>
+                <li><strong>Soft Skills:</strong> Cross-team collaboration, creative problem-solving, adaptive learner</li>
+            </ul>
+            <h5>Professional Experience</h5>
+            <p><strong>Sr. Web Developer</strong><br>
+            Discount Dance LLC – Remote/Hemet, CA<br>
+            2008 – 2025</p>
+            <ul>
+                <li>Led mobile-first redesign of company ecommerce platform</li>
+                <li>Developed engaging gamification features (e.g., online scratchers, spin-the-wheel)</li>
+                <li>Supported cross-department needs, including marketing, design, and IT</li>
+                <li>Handled both frontend and backend tasks with minimal supervision</li>
+            </ul>
+            <p><strong>IT Support / IT Manager</strong><br>
+            RE/MAX All Cities Realty – Torrance, CA<br>
+            2001 – 2008</p>
+            <ul>
+                <li>Wrote and maintained weekly instructional blogs for real estate agents</li>
+                <li>Developed timecard automation software to replace manual systems</li>
+                <li>Maintained hardware/software across 14 locations, reducing downtime</li>
+            </ul>
+            <h5>Education</h5>
+            <p>
+                Bachelor’s Degree – IT &amp; Web Development<br>
+                Kaplan University, graduated 2012.
+            </p>
+            <h5>Hobbies &amp; Personal Interests</h5>
+            <p>
+                Reading · Writing · Drawing · Gardening · Traveling · Hiking
+            </p>
+        </div>
+    </section>
+
+    <section id="about" class="container my-5">
+        <h2 class="text-center py-4">About Me</h2>
+        <div class="about-me-content">
+            <div class="row align-items-start">
+                <div class="col-md-3 text-center">
+                    <img src="images/profilePic.jpg" width="200" height="200" alt="Stewart Hoffman" class="img-fluid rounded-circle mb-3 mb-md-0" />
+                </div>
+                <div class="col-md-9">
+                    <p>
+                        I’m Stewart Hoffman, a web developer and IT professional with over 20 years of experience in e-commerce, front-end development, and IT management.
+                    </p>
+                    <p>
+                        For the past 17+ years, I’ve served as a Web Developer at Discount Dance LLC, where I’ve specialized in building and optimizing e-commerce solutions, designing responsive mobile experiences, and maintaining high-performing websites that serve a large and diverse customer base. My work blends technical expertise with a strong focus on user experience, ensuring smooth navigation and effective online sales performance.
+                    </p>
+                    <p>
+                        Before that, I spent 6+ years as an IT Manager with RE/MAX Marquee Partners (formerly RE/MAX Beach Cities Realty), overseeing network infrastructure, troubleshooting complex systems, and providing web development support. This role strengthened my problem-solving skills, adaptability, and ability to manage both technical systems and cross-team needs.
+                    </p>
+                    <p>
+                        I bring a versatile skill set that includes PHP, HTML, CSS, JavaScript, jQuery, MySQL, Photoshop, and Figma, with a focus on clean, efficient, and scalable solutions. I enjoy bridging design and functionality, turning concepts into responsive, user-friendly applications.
+                    </p>
+                    <p>
+                        At 53, I’m excited about leveraging my deep technical background and creative problem-solving abilities to continue delivering impactful digital solutions and supporting organizations in achieving their online goals.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container my-5">
+        <h2 class="text-center py-4">Contact Me</h2>
+        <div class="contact-content mx-auto">
+            <form>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="contactName">Name</label>
+                            <input type="text" class="form-control" id="contactName" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" class="form-control" id="contactEmail" placeholder="Your Email" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group h-100 d-flex flex-column">
+                            <label for="contactMessage">Message</label>
+                            <textarea class="form-control flex-grow-1" id="contactMessage" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="text-center py-4">
+        &copy; 2025 Stewart Hoffman. All rights reserved.
+    </footer>
+    <!-- Scroll to top button (mobile only) -->
+    <button id="scrollTopBtn" class="d-md-none" aria-label="Scroll to top">
+        &#8679;
+    </button>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+    // Show/hide scroll-to-top button on mobile
+    (function() {
+        var btn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 200) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
+        btn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
+    </script>
+</body>
 </html>
