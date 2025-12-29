@@ -67,8 +67,29 @@
         headers: { "Accept": "application/json" }
       });
 
-      const data = await res.json();
+      //const data = await res.json();
+      const text = await res.text();
 
+      // Debug info (remove later)
+      console.log("CONTACT DEBUG:", {
+        status: res.status,
+        ok: res.ok,
+        url: res.url,
+        contentType: res.headers.get("content-type"),
+        preview: text.slice(0, 200)
+      });
+
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        throw new Error(
+          `Server returned non-JSON (status ${res.status}). ` +
+          `Content-Type: ${res.headers.get("content-type") || "unknown"}. ` +
+          `First 200 chars: ${text.slice(0, 200)}`
+        );
+      }
+      
       if (!res.ok || !data.ok) {
         throw new Error(data.error || "Something went wrong. Please try again.");
       }
