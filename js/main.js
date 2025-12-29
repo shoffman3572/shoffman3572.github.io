@@ -17,81 +17,60 @@
     successEl.classList.remove("d-none");
   };
 
-  const isValidEmail = (email) => {
-    // Practical email check (not RFC-perfect, but solid)
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    // Reset messages
     errorEl.classList.add("d-none");
     successEl.classList.add("d-none");
 
-    // Grab values
     const name = form.name.value.trim();
     const email = form.email.value.trim();
     const message = form.message.value.trim();
 
-    // Custom validation messages
-    let customError = "";
-    if (name.length < 2 || name.length > 80) customError = "Please enter your name (2–80 characters).";
-    else if (!isValidEmail(email) || email.length > 254) customError = "Please enter a valid email address.";
-    else if (message.length < 10 || message.length > 2000) customError = "Please enter a message (10–2000 characters).";
-
-    // Bootstrap visual validation
-    if (customError) {
+    // Client-side validation
+    if (name.length < 2 || name.length > 80) {
       form.classList.add("was-validated");
-      showError(customError);
-      return;
+      return showError("Please enter your name (2–80 characters).");
     }
-
-    // HTML5 validation (required/minlength/etc)
+    if (!isValidEmail(email) || email.length > 254) {
+      form.classList.add("was-validated");
+      return showError("Please enter a valid email address.");
+    }
+    if (message.length < 10 || message.length > 2000) {
+      form.classList.add("was-validated");
+      return showError("Please enter a message (10–2000 characters).");
+    }
     if (!form.checkValidity()) {
       form.classList.add("was-validated");
-      showError("Please fix the highlighted fields.");
-      return;
+      return showError("Please fix the highlighted fields.");
     }
 
-    // Disable button to prevent double-submits
+    // Disable button to prevent double submits
     btn.disabled = true;
     btn.textContent = "Sending...";
 
     try {
       const formData = new FormData(form);
 
-      const res = await fetch("/contact.php", {
+      // Honeypot support (if you included it in the HTML)
+      // If you didn't add the hidden "company" field, this does nothing.
+      // formData.set("company", form.company?.value || "");
+
+      const res = await fetch(form.action, {
         method: "POST",
         body: formData,
         headers: { "Accept": "application/json" }
       });
 
-      //const data = await res.json();
-      const text = await res.text();
+      const data = await res.json().catch(() => null);
 
-      // Debug info (remove later)
-      console.log("CONTACT DEBUG:", {
-        status: res.status,
-        ok: res.ok,
-        url: res.url,
-        contentType: res.headers.get("content-type"),
-        preview: text.slice(0, 200)
-      });
-
-      let data;
-      try {
-        data = JSON.parse(text);
-      } catch {
-        throw new Error(
-          `Server returned non-JSON (status ${res.status}). ` +
-          `Content-Type: ${res.headers.get("content-type") || "unknown"}. ` +
-          `First 200 chars: ${text.slice(0, 200)}`
-        );
-      }
-      
-      if (!res.ok || !data.ok) {
-        throw new Error(data.error || "Something went wrong. Please try again.");
+      if (!res.ok) {
+        const msg =
+          (data && (data.error || data.message)) ||
+          "Form could not be submitted. Please try again.";
+        throw new Error(msg);
       }
 
       showSuccess();
