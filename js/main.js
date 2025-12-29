@@ -61,7 +61,7 @@
     try {
       const formData = new FormData(form);
 
-      const res = await fetch("contact.php", {
+      const res = await fetch("/contact.php", {
         method: "POST",
         body: formData,
         headers: { "Accept": "application/json" }
