@@ -1,264 +1,255 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stewart Hoffman's Portfolio</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Stewart Hoffman Games & Books | Plastic Tide Support</title>
+
+  <!-- SEO: concise, keyword-relevant description -->
+  <meta name="description" content="Stewart Hoffman Games & Books. Indie games and books by Stewart Hoffman. Plastic Tide — a water-themed puzzle game. Support and contact information." />
+
+  <!-- SEO: canonical helps avoid duplicate URL issues -->
+  <link rel="canonical" href="https://www.stewarthoffman.com/" />
+
+  <!-- SEO: Open Graph for nicer sharing previews -->
+  <meta property="og:site_name" content="Stewart Hoffman Games & Books" />
+  <meta property="og:title" content="Stewart Hoffman Games & Books" />
+  <meta property="og:description" content="Indie games and books by Stewart Hoffman. Plastic Tide support and updates." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.stewarthoffman.com/" />
+  <!-- Optional later: add an image for social previews (1200x630 recommended)
+  <meta property="og:image" content="https://www.stewarthoffman.com/og-image.jpg" />
+  -->
+
+  <!-- SEO: Twitter card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Stewart Hoffman Games & Books" />
+  <meta name="twitter:description" content="Indie games and books by Stewart Hoffman. Plastic Tide support and updates." />
+  <!-- Optional later:
+  <meta name="twitter:image" content="https://www.stewarthoffman.com/og-image.jpg" />
+  -->
+
+  <!-- Basic, fast styling; no frameworks -->
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --card: #111824;
+      --text: #eaf0ff;
+      --muted: rgba(234,240,255,.75);
+      --line: rgba(234,240,255,.12);
+      --accent: #8fd3ff;
+      --max: 980px;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(143,211,255,.18), transparent 55%),
+                  radial-gradient(900px 500px at 110% 10%, rgba(143,211,255,.10), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    header {
+      padding: 22px 18px 10px;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,20,.72);
+      z-index: 10;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 18px;
+    }
+
+    main { padding: 28px 18px 46px; }
+
+    .hero {
+      background: rgba(17,24,36,.72);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .shot-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .shot {
+      aspect-ratio: 16 / 10;
+      border-radius: 14px;
+      border: 1px dashed rgba(234,240,255,.22);
+      background: linear-gradient(180deg, rgba(143,211,255,.08), rgba(143,211,255,.03));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    /* When you add images, just put <img> inside .shot */
+    .shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    h1 {
+      font-size: 28px;
+      line-height: 1.15;
+      margin: 6px 0 10px;
+    }
+
+    p { margin: 0 0 12px; color: var(--muted); }
+
+    .kicker {
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: .2px;
+      margin: 0 0 6px;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .card {
+      background: rgba(17,24,36,.55);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px 14px;
+    }
+
+    .card h2 {
+      font-size: 16px;
+      margin: 0 0 6px;
+    }
+
+    a { color: var(--accent); }
+    a:hover { opacity: .9; }
+
+    footer {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .shot-grid { grid-template-columns: repeat(2, 1fr); }
+      .cards { grid-template-columns: 1fr; }
+      h1 { font-size: 24px; }
+    }
+  </style>
+
+  <!-- Optional SEO: JSON-LD (helps search engines understand your site) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Stewart Hoffman",
+    "url":"https://www.stewarthoffman.com/",
+    "sameAs":[]
+  }
+  </script>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Stewart Hoffman</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#resume">Resume</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#logos">Skill Set</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#php">PHP/MySQL</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#react">React</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Rails</a>
-                </li>
-                 <li class="nav-item">
-                    <a class="nav-link" href="#about">About Me</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact Me</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <header class="container text-center my-5">
-        <div class="row">
-            <div class="col-12 col-md-4 mb-3 mb-md-0">
-                <img src="images/dev-meme-1.png" alt="Developer Meme 1" class="img-fluid" />
-            </div>
-            <div class="col-12 col-md-4 mb-3 mb-md-0">
-                <img src="images/dev-meme-2.png" alt="Developer Meme 2" class="img-fluid" />
-            </div>
-            <div class="col-12 col-md-4 mb-3 mb-md-0">
-                <img src="images/dev-meme-3.png" alt="Developer Meme 3" class="img-fluid" />
-            </div>
-        </div>
-    </header>
-
-    <section class="container my-5 text-center">
-        <h2 class="py-2">Core Toolbox:</h2>
-        <div class="row">
-            <div class="col">
-                <img src="images/php.png" alt="PHP Logo" class="img-fluid skill-logo" title="PHP" />
-            </div>
-            <div class="col">
-                <img src="images/mysql.png" alt="MySQL Logo" class="img-fluid skill-logo" />
-            </div>
-            <div class="col">
-                <img src="images/html.png" alt="HTML Logo" class="img-fluid skill-logo" />
-            </div>
-            <div class="col">
-                <img src="images/javascript.png" alt="JavaScript Logo" class="img-fluid skill-logo" />
-            </div>
-            <div class="col">
-                <img src="images/jquery.png" alt="jQuery Logo" class="img-fluid skill-logo" />
-            </div>
-            <div class="col">
-                <img src="images/css.png" alt="CSS Logo" class="img-fluid skill-logo" />
-            </div>
-            <div class="col">
-                <img src="images/figma.png" alt="Figma Logo" class="img-fluid skill-logo" />
-            </div>
-        </div>
-    </section>
-
-    <section class="container my-5 text-center">
-        <h2 class="py-2">Some Experience With:</h2>
-        <div class="row">
-            <div class="col">
-                <img src="images/react.png" alt="React Logo" class="img-fluid skill-logo" />
-            </div>
-            <div class="col">
-                <img src="images/cms.png" alt="Contact management logo" class="img-fluid skill-logo" />
-            </div>
-            <div class="col">
-                <img src="images/photoshop.png" alt="Photoshop Logo" class="img-fluid skill-logo" />
-            </div>
-           <div class="col">
-                <img src="images/ruby.png" alt="Ruby Logo" class="img-fluid skill-logo" />
-            </div>
-        </div>
-    </section>
-
-    <section id="resume" class="container py-1">
-        <h2 class="text-center">Resume</h2>
-        <div class="resume-content">
-            <p><strong>Stewart Hoffman</strong><br>
-            702 Alondra Drive · Hemet, CA 92545 · <a href="mailto:shoffman3572@gmail.com">shoffman3572@gmail.com</a> · (714) 457-5310<br>
-            <a href="https://www.linkedin.com/in/stewart-hoffman-7ab55410a" target="_blank">LinkedIn Profile</a>
-            </p>
-            <hr>
-            <h5>Professional Summary</h5>
-            <p>
-                Versatile and experienced Web Developer with 20+ years of experience delivering clean, user-centered websites and applications. Proven ability to modernize legacy systems, drive mobile-first design, and create marketing-focused gamification features. A collaborative team player with a creative eye and a practical mindset, now exploring new technologies including AI-assisted development.
-            </p>
-            <h5>Core Competencies</h5>
-            <ul class="list-unstyled">
-                <li><strong>Frontend:</strong> HTML5, CSS, JavaScript, jQuery, SASS, Responsive Design</li>
-                <li><strong>Backend:</strong> PHP (Procedural), Custom CMS Work</li>
-                <li><strong>Tools &amp; Platforms:</strong> VSCode, Photoshop, Figma</li>
-                <li><strong>AI Tools:</strong> ChatGPT, Openart.ai and CoPilot - leveraging for code, copywriting &amp; ideation</li>
-                <li><strong>Soft Skills:</strong> Cross-team collaboration, creative problem-solving, adaptive learner</li>
-            </ul>
-            <h5>Professional Experience</h5>
-            <p><strong>Sr. Web Developer</strong><br>
-            Discount Dance LLC - Remote/Hemet, CA<br>
-            2008 - 2025</p>
-            <ul>
-                <li>Led mobile-first redesign of company ecommerce platform</li>
-                <li>Developed engaging gamification features (e.g., online scratchers, spin-the-wheel)</li>
-                <li>Supported cross-department needs, including marketing, customer service, design, and IT</li>
-                <li>Handled both frontend and backend tasks with minimal supervision</li>
-                <li>Worked with third-parties such as Attentive, Optiversal, and Cordial</li>
-            </ul>
-            <p><strong>IT Support / IT Manager</strong><br>
-            RE/MAX All Cities Realty - Torrance, CA<br>
-            2001 - 2008</p>
-            <ul>
-                <li>Wrote and maintained weekly instructional blogs for real estate agents</li>
-                <li>Developed timecard automation software to replace manual systems</li>
-                <li>Maintained hardware/software across 14 locations, reducing downtime</li>
-            </ul>
-            <h5>Education</h5>
-            <p>
-                Bachelor's Degree - IT &amp; Web Development<br>
-                Kaplan University, graduated 2012.
-            </p>
-            <h5>Hobbies &amp; Personal Interests</h5>
-            <p>
-                Reading · Writing · Drawing · Gardening · Traveling · Hiking
-            </p>
-        </div>
-    </section>
-
-    <section id="about" class="container my-5">
-        <h2 class="text-center py-4">About Me</h2>
-        <div class="about-me-content">
-            <div class="row align-items-start">
-                <div class="col-md-3 text-center">
-                    <img src="images/profilePic.jpg" width="200" height="200" alt="Stewart Hoffman" class="img-fluid rounded-circle mb-3 mb-md-0" />
-                </div>
-                <div class="col-md-9">
-                    <p>
-                        I'm Stewart Hoffman, a web developer and IT professional with over 20 years of experience in e-commerce, front-end development, and IT management.
-                    </p>
-                    <p>
-                        For the past 17+ years, I've served as a Web Developer at Discount Dance LLC, where I've specialized in building and optimizing e-commerce solutions, designing responsive mobile experiences, and maintaining high-performing websites that serve a large and diverse customer base. My work blends technical expertise with a strong focus on user experience, ensuring smooth navigation and effective online sales performance.
-                    </p>
-                    <p>
-                        Before that, I spent 6+ years as an IT Manager with RE/MAX Marquee Partners (formerly RE/MAX Beach Cities Realty), overseeing network infrastructure, troubleshooting complex systems, and providing web development support. This role strengthened my problem-solving skills, adaptability, and ability to manage both technical systems and cross-team needs.
-                    </p>
-                    <p>
-                        I bring a versatile skill set that includes PHP, HTML, CSS, JavaScript, jQuery, MySQL, Photoshop, and Figma, with a focus on clean, efficient, and scalable solutions. I enjoy bridging design and functionality, turning concepts into responsive, user-friendly applications.
-                    </p>
-                    <p>
-                        At 53, I'm excited about leveraging my deep technical background and creative problem-solving abilities to continue delivering impactful digital solutions and supporting organizations in achieving their online goals.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="container my-5">
-  <h2 class="text-center py-4">Contact Me</h2>
-
-  <div class="row justify-content-center">
-    <div class="col-12 col-lg-8">
-      <form
-  id="contactForm"
-  action="https://formspree.io/f/mojqygzg"
-  method="POST"
-  novalidate
->
-  <div class="form-group mb-3">
-    <label for="name" class="form-label">Name</label>
-    <input
-      type="text"
-      class="form-control"
-      id="name"
-      name="name"
-      required
-    />
-  </div>
-
-  <div class="form-group mb-3">
-    <label for="email" class="form-label">Email</label>
-    <input
-      type="email"
-      class="form-control"
-      id="email"
-      name="email"
-      required
-    />
-  </div>
-
-  <div class="form-group mb-4">
-    <label for="message" class="form-label">Message</label>
-    <textarea
-      class="form-control"
-      id="message"
-      name="message"
-      rows="6"
-      required
-    ></textarea>
-  </div>
-
-  <button type="submit" class="btn btn-primary w-100">
-    Send Message
-  </button>
-</form>
-
-
+  <header>
+    <div class="wrap">
+      <!-- No nav, name top-left -->
+      <a class="brand" href="/">Stewart Hoffman Games &amp; Books</a>
     </div>
-  </div>
-</section>
+  </header>
 
+  <main class="wrap">
+    <section class="hero">
+      <!-- Room for 4 screenshots -->
+      <div class="shot-grid" aria-label="Plastic Tide screenshots">
+        <div class="shot">
+          Screenshot 1<br><span style="opacity:.75">Add an &lt;img&gt; here</span>
+          <!-- Example:
+          <img src="screenshots/plastic-tide-1.jpg" alt="Plastic Tide gameplay screenshot 1">
+          -->
+        </div>
+        <div class="shot">
+          Screenshot 2<br><span style="opacity:.75">Add an &lt;img&gt; here</span>
+        </div>
+        <div class="shot">
+          Screenshot 3<br><span style="opacity:.75">Add an &lt;img&gt; here</span>
+        </div>
+        <div class="shot">
+          Screenshot 4<br><span style="opacity:.75">Add an &lt;img&gt; here</span>
+        </div>
+      </div>
 
-    <footer class="text-center py-4">
-        &copy; 2025 Stewart Hoffman. All rights reserved.
-    </footer>
-    <!-- Scroll to top button (mobile only) -->
-    <button id="scrollTopBtn" class="d-md-none" aria-label="Scroll to top">
-        &#8679;
-    </button>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-    // Show/hide scroll-to-top button on mobile
-    (function() {
-        var btn = document.getElementById('scrollTopBtn');
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 200) {
-                btn.style.display = 'block';
-            } else {
-                btn.style.display = 'none';
-            }
-        });
-        btn.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    })();
-    </script>
+      <!-- Marketing text -->
+      <div class="kicker">Featured Game</div>
+      <h1>Plastic Tide</h1>
+      <p>
+        Plastic Tide is a puzzle game about guiding floating debris across the water and parking each piece along the edges.
+        It’s designed to be fun first, while quietly nudging awareness about ocean pollution.
+      </p>
+      <p>
+        More updates (and more oddball projects) live here under Stewart Hoffman Games &amp; Books.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h2>Support</h2>
+          <p>
+            Need help, found a bug, or have feedback?<br />
+            Email: <a href="mailto:Stewart.hoffman.games@gmail.com">Stewart.hoffman.games@gmail.com</a>
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Privacy Policy</h2>
+          <p>
+            Plastic Tide does not collect, store, or share personal data. It does not use tracking or third-party analytics.
+          </p>
+        </div>
+      </div>
+
+      <footer>
+        <p>© <span id="year"></span> Stewart Hoffman. All rights reserved.</p>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    // Tiny convenience
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
