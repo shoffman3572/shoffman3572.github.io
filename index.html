@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Stewart Hoffman Games | Plastic Tide Support</title>
+  <title>Stewart Hoffman Games</title>
 
   <!-- SEO: concise, keyword-relevant description -->
   <meta name="description" content="Stewart Hoffman Games. Indie games by Stewart Hoffman. Plastic Tide — a water-themed puzzle game. Support and contact information." />
@@ -92,21 +92,20 @@
     }
 
     .shot {
-      aspect-ratio: 16 / 10;
-      border-radius: 14px;
-      border: 1px dashed rgba(234,240,255,.22);
-      background: linear-gradient(180deg, rgba(143,211,255,.08), rgba(143,211,255,.03));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-size: 13px;
-      text-align: center;
-      padding: 10px;
-      overflow: hidden;
-      height: 500px;
-      width: 218px;
-    }
+  aspect-ratio: 16 / 10;
+  border-radius: 14px;
+  border: 1px dashed rgba(234,240,255,.22);
+  background: linear-gradient(180deg, rgba(143,211,255,.08), rgba(143,211,255,.03));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+  padding: 10px;
+  overflow: hidden;
+}
+
 
     /* When you add images, just put <img> inside .shot */
     .shot img {
@@ -164,10 +163,19 @@
     }
 
     @media (max-width: 760px) {
-      .shot-grid { grid-template-columns: repeat(2, 1fr); }
-      .cards { grid-template-columns: 1fr; }
-      h1 { font-size: 24px; }
-    }
+  .shot-grid {
+    grid-template-columns: 1fr;      /* one per row (nicest for screenshots) */
+    justify-items: center;           /* center the screenshot cards */
+  }
+
+  .shot {
+    width: min(520px, 100%);         /* keep them from getting huge */
+  }
+
+  .cards { grid-template-columns: 1fr; }
+  h1 { font-size: 24px; }
+}
+
   </style>
 
   <!-- Optional SEO: JSON-LD (helps search engines understand your site) -->
