@@ -89,7 +89,9 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 10px;
       margin-bottom: 18px;
+      justify-items: center;   /* <-- add this */
     }
+
 
     .shot {
   aspect-ratio: 16 / 10;
@@ -167,7 +169,7 @@
     grid-template-columns: 1fr;      /* one per row (nicest for screenshots) */
     justify-items: center;           /* center the screenshot cards */
   }
-
+.shot-grid { grid-template-columns: repeat(2, 1fr); justify-items: center; }
   .shot {
     width: min(520px, 100%);         /* keep them from getting huge */
   }
